@@ -1,30 +1,34 @@
 import random
 
-def welcomeMessage():
+while True:
     print("Welcome to the Rock Paper and Scissors!\n")
 
-userPick = input("Your move! \nEnter 'r' for rock, 'p' for paper and 's' for scissors: ")
-#print(userPick)
+    choices = ['rock', 'paper', 'scissors']
 
-# will make sure the user input the right input
-while (userPick == "") or (userPick != "r" or userPick != "p" or userPick != "s"):
-    if (userPick == "r" or userPick == "p" or userPick == "s"):
+    userPick = ""
+    #print(userPick)
+
+    # will make sure the user input the right input
+
+    while userPick not in choices:
+        userPick = input("Your move! \nRock, paper or scissors?: ")
+
+    computerPick = random.choice(choices)
+    print("Computer pick: " + computerPick)
+
+    # draw
+    if userPick == computerPick:
+        print("It's a draw!")
+    elif (userPick=="papper" and computerPick=="scissors") or (userPick=="rock" and computerPick=="paper") or (userPick=="scissors" and computerPick=="rock"):
+        print("Computer wins!")
+    elif (userPick=="paper" and computerPick=="rock") or (userPick=="rock" and computerPick=="scissors") or (userPick=="scissors" and computerPick=="paper"):
+        print("Player wins!")
+    else:
+        print("Something went wrong")
+    #print(computerPick)
+
+    play_again = input("Play again? yes/no: ")
+    if play_again != "yes":
         break
-    else: 
-        userPick = input("Invalid input. Enter 'r' for rock, 'p' for paper and 's' for scissors: ")
 
-myList = ['rock', 'paper', 'scissors']
-computerPick = random.choice(myList)
-print("Computer pick: " + computerPick)
-
-# draw
-if (userPick=="p" and computerPick=="paper") or (userPick=="r" and computerPick=="rock") or (userPick=="s" and computerPick=="scissors"):
-    print("It's a draw!")
-elif (userPick=="p" and computerPick=="scissors") or (userPick=="r" and computerPick=="paper") or (userPick=="s" and computerPick=="rock"):
-    print("Computer wins!")
-elif (userPick=="p" and computerPick=="rock") or (userPick=="r" and computerPick=="scissors") or (userPick=="s" and computerPick=="paper"):
-    print("Player wins!")
-else:
-    print("Something went wrong")
-#print(computerPick)
-
+print("Bye! Have a good day!")
