@@ -3,6 +3,7 @@ from tkinter import *
 window = Tk()
 
 frame = Frame(window, bg='pink', bd=5, relief=SUNKEN)
+
 frame.pack(side=BOTTOM)
 
 Button(frame, text="w", font=("Consolas", 25), width=3).pack(side=TOP)
